@@ -25,6 +25,9 @@ eureka:
 payment:
   service.url : http://localhost:8081/
   
+custom:
+ msg: for my first message  
+  
   
 server:
  port: 8082
