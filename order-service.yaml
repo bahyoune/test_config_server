@@ -17,8 +17,8 @@ spring:
     compatibility-verifier:
       enabled: false
    
- kafka:
-    bootstrap-servers: localhost:9092     
+  kafka:
+   bootstrap-servers: localhost:9092     
 
 
 custom:
