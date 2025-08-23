@@ -33,6 +33,6 @@ jwt:
 
 app:
   kafka:
-    topic: orders-topic
+    topic: orders-topic1
     
     
