@@ -23,16 +23,26 @@ spring:
       group-id: payment-group
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      auto-offset-reset: "earliest"
+      auto-offset-reset: earliest
       properties:
         spring:
          json:
-          value:
-           default:
-            type: com.microtest.PaymentService.dto.OrderEvent
+          #value:
+           #default:
+            #type: com.microtest.PaymentService.dto.OrderEvent
           trusted:
            packages: "*"
-        
+         deserializer:
+          key:
+           delegate:
+            class: org.apache.kafka.common.serialization.StringDeserializer
+          value:
+           delegate:
+            class: org.springframework.kafka.support.serializer.JsonDeserializer
+	  use:
+	   type:
+	    headers: false
+
 
 
 server:
