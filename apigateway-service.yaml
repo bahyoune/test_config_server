@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: apigateway-service
+    
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true   
+  
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # For HS256 demo. In prod, prefer JWK set URI / public key.
+          secret-key: MysuperSecretKeyForJWT1234567890098765432dffgdfsgfgsfgsdfgfsfgffgsfg456w5w465w4rggfg4453
+
+
