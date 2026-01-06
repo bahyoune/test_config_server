@@ -30,7 +30,7 @@ spring:
             - id: user-service
               uri: lb://user-service
               predicates:
-                - Path=/api/v1/auth/**
+                - Path=/auth/**
               filters:
                 - StripPrefix=1         
 #    compatibility-verifier:
