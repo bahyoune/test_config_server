@@ -18,6 +18,10 @@ spring:
       enabled: false
     config:
       override-none: true  
+   
+  web:
+    cors:
+      allowed-origins: none    
     
     
   kafka:

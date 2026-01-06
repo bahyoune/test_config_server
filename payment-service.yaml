@@ -18,7 +18,11 @@ spring:
     compatibility-verifier:
       enabled: false
     config:
-      override-none: true      
+      override-none: true   
+      
+  web:
+    cors:
+      allowed-origins: none        
 
   kafka:
    bootstrap-servers: localhost:9092
