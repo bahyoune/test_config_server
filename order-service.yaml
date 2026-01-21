@@ -45,16 +45,49 @@ spring:
      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
  
 
-logging:
-  level:
-    org.springframework.security: DEBUG
+#logging:
+ # level:
+  #  org.springframework.security: DEBUG
+
+
+resilience4j:
+
+  circuitbreaker:
+    instances:
+      paymentService:
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
+        recordExceptions:
+          - java.io.IOException
+          - org.springframework.web.client.HttpServerErrorException
+          - java.util.concurrent.TimeoutException
+
+  retry:
+    instances:
+      paymentService:
+        maxAttempts: 3
+        waitDuration: 500ms
+        retryExceptions:
+          - java.io.IOException
+          - java.util.concurrent.TimeoutException
+
+  timelimiter:
+    instances:
+      paymentService:
+        timeoutDuration: 2s
 
 app:
   kafka:
     topic:
       order: orders-topic3
+      ordercreate: orders-create
       partition: 3
       replicate: 1
+      paymentSuccess: payment-succed
+      paymentFailed: payment-failed
     dlt:
       order: orders-topic3.DLT
       partition: 3
@@ -72,3 +105,6 @@ payment:
   
 server:
  port: 8082
+ #address: 0.0.0.0 
+ 
+ 
