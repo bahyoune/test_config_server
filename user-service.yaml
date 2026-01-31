@@ -4,8 +4,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/serviceorder
-    username: grantjvm_market_shop1
-    password: NAmyVH7hvN22tzd3MYND
+    username: rootorder
+    password: ""
   jpa:
     hibernate:
       ddl-auto: update
