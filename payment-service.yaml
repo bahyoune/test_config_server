@@ -57,6 +57,7 @@ app:
       paymentFailed: payment-failed
     dlt:
       order: orders-topic3.DLT
+      ordercreate: orders-create.DLT
       partition: 3
       replicate: 1  
     

@@ -2,17 +2,16 @@ spring:
   application:
     name: payment-service
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://172.17.0.1:3306/servicepayment
-    username: rootdocker
-    password: 12Dinfoyoune
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:/data/payment-db
+    username: sa
+    password: ""
   jpa:
     hibernate:
       ddl-auto: update
     properties:
-      dialect: org.hibernate.dialect.MySQLDialect
-      hibernate:
-       format_sql: true
+      dialect: org.hibernate.dialect.H2Dialect
+     
   
    
         
